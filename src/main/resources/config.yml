@@ -1,0 +1,45 @@
+send_denied_message: "You don't have the permission to send a message on this channel."
+
+range:
+  - prefix: "#"
+    range: 3
+    descriptor: "murmure"
+    color: "#842bb0"
+    default: false
+  - prefix: "-"
+    range: 10
+    descriptor: "dit bas"
+    color: "#2b6bb0"
+    default: false
+  - prefix: ""
+    range: 15
+    descriptor: "dit"
+    color: "#83bb7c"
+    default: true
+  - prefix: "+"
+    range: 25
+    descriptor: "dit fort"
+    color: "#cfcb5c"
+    default: false
+  - prefix: "!"
+    range: 50
+    descriptor: "crie"
+    color: "#cf5c5c"
+    default: false
+
+channel:
+  - prefix: ""
+    type: "ranged"
+    format: "├├ <displayname> [<descriptor>] <rangecolor><message></rangecolor>"
+    options:
+        sendPermission: "meyrpchat.channel.send.basic"
+        receivePermission: "meyrpchat.channel.receive.basic"
+  - prefix: "*"
+    type: "ranged"
+    format: "►<displayname> <italic><rangecolor><message></rangecolor></italic>"
+  - prefix: "("
+    type: "ranged"
+    format: "►<displayname> [<rangeprefix>] <color:#9e9e9e>(<message></color:#9e9e9e>"
+  - prefix: ">"
+    type: "targeted"
+    format: "<displayname> > <target> : <message>"

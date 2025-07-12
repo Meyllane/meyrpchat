@@ -1,0 +1,4 @@
+name: MeyRPChat
+version: '1.0'
+main: com.github.meyllane.meyRPChat.MeyRPChat
+api-version: '1.21'
