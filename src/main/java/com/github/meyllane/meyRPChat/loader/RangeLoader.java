@@ -5,6 +5,7 @@ import com.github.meyllane.meyRPChat.context.ext.Range;
 import org.bukkit.plugin.Plugin;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 
@@ -12,10 +13,10 @@ public class RangeLoader {
     private static final Plugin plugin = MeyRPChat.getPlugin(MeyRPChat.class);
 
     public static List<Range> getRanges() {
-        var ranges = loadRangeFromConfig();
-        var validRanges = removeDuplicatePrefixes(ranges);
-        var singleDefaultRanges = ensureSingleDefault(validRanges);
-        return removeInvalidRanges(singleDefaultRanges);
+        return ((Function<List<Range>, List<Range>>) RangeLoader::removeDuplicatePrefixes)
+                .andThen(RangeLoader::ensureSingleDefault)
+                .andThen(RangeLoader::removeInvalidRanges)
+                .apply(loadRangeFromConfig());
     }
 
     private static List<Range> loadRangeFromConfig() {
