@@ -10,7 +10,6 @@ import com.github.meyllane.meyRPChat.builder.context.impl.RangedContextBuilder;
 import com.github.meyllane.meyRPChat.channel.impl.ServerChannel;
 import com.github.meyllane.meyRPChat.channel.impl.TargetedChannel;
 import com.github.meyllane.meyRPChat.channel.impl.WorldChannel;
-import com.github.meyllane.meyRPChat.context.ChatContext;
 import com.github.meyllane.meyRPChat.context.ext.Range;
 import com.github.meyllane.meyRPChat.channel.impl.RangedChannel;
 import com.github.meyllane.meyRPChat.listener.ChatListener;
