@@ -37,7 +37,7 @@ public class ChatListener implements Listener {
                 ));
     }
 
-    private <C extends ChatContext> void dispatch(ChannelDescriptor<C> desc, Player player, String message) {
+    public static <C extends ChatContext> void dispatch(ChannelDescriptor<C> desc, Player player, String message) {
         try {
             C ctx;
             List<String> chatBuffer = MeyRPChat.chatBuffer.computeIfAbsent(player.getUniqueId(), uuid -> new ArrayList<>());
@@ -64,7 +64,7 @@ public class ChatListener implements Listener {
         }
     }
 
-    private <C extends ChatContext> String stripEnding(C ctx) {
+    private static <C extends ChatContext> String stripEnding(C ctx) {
         String serialized = PlainTextComponentSerializer.plainText().serialize(ctx.getMessage());
         return serialized.replaceFirst(">$", "");
     }
