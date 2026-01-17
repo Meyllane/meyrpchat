@@ -15,6 +15,10 @@ public final class ChannelOption {
         return options;
     }
 
+    public Object getOptionValue(String option) {
+        return this.options.get(option);
+    }
+
     public static Builder builder() {
         return new Builder();
     }
