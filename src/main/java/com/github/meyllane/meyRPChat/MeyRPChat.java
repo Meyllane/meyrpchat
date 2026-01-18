@@ -22,11 +22,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.logging.Level;
+import java.util.regex.Pattern;
 
 public final class MeyRPChat extends JavaPlugin {
     public List<Range> ranges;
@@ -37,13 +35,15 @@ public final class MeyRPChat extends JavaPlugin {
     public static final TagProviderRegistry tagProviderRegistry = new TagProviderRegistry();
     public static final MiniMessage mm = MiniMessage.miniMessage();
     public static String sendDeniedMessage;
+    public static String itemReplacementRawString;
     public static HashMap<UUID, ArrayList<String>> chatBuffer = new HashMap<>();
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
         FileConfiguration config = getConfig();
-        sendDeniedMessage = config.getString("send_denied_message", "You don\\'t have the permission to send a message on this channel.");
+        sendDeniedMessage = config.getString("sendDeniedMessage", "You don\\'t have the permission to send a message on this channel.");
+        itemReplacementRawString = config.getString("itemReplacementTag", "");
 
         reloadConfigurations();
         loadTagProviders();
@@ -128,10 +128,9 @@ public final class MeyRPChat extends JavaPlugin {
         tagProviderRegistry.register("rangecolor", new RangeColorTagProvider("rangecolor"));
         tagProviderRegistry.register("rangeprefix", new RangePrefixTagProvider("rangeprefix"));
         tagProviderRegistry.register("target", new TargetTagProvider("target"));
+        tagProviderRegistry.register("itemreplacement", new ItemReplacementTagProdiver("itemreplacement"));
     }
 
     @Override
-    public void onDisable() {
-        // Logique d'arrêt du plugin si besoin
-    }
+    public void onDisable() {}
 }

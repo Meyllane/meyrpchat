@@ -1,4 +1,11 @@
-send_denied_message: "You don't have the permission to send a message on this channel."
+sendDeniedMessage: "You don't have the permission to send a message on this channel."
+
+#The piece of text the plugin will check to replace by the item the player is currently holding in hand. You can put
+#whatever non alphanumeric character that you want, but keep the "item" word sandwiched between the characters.
+#Example :
+# Good : [item] / &&item]]
+# Bad: [] / &&]] / [i&
+itemReplacementTag: "[item]"
 
 range:
   - prefix: "#"
@@ -30,7 +37,7 @@ range:
 channel:
   - prefix: ""
     type: "ranged"
-    format: "├├ <displayname> [<descriptor>] <rangecolor><message></rangecolor>"
+    format: "├├ <displayname/> [<descriptor>] <rangecolor><message/></rangecolor>"
     options:
         sendPermission: "meyrpchat.channel.send.basic"
         receivePermission: "meyrpchat.channel.receive.basic"
@@ -43,3 +50,6 @@ channel:
   - prefix: ">"
     type: "targeted"
     format: "<displayname> > <target> : <message>"
+    options:
+        castOnReceive: true
+        castOnReceiveRange: 3
