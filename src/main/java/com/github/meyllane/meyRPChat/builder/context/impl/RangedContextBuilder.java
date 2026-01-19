@@ -88,6 +88,6 @@ public class RangedContextBuilder implements ContextBuilder<RangedChatContext> {
         List<String> symbols = getItemReplacementSymbols();
 
         String patt = Pattern.quote(symbols.getFirst()) + "(.+?)" + Pattern.quote(symbols.get(1));
-        return message.replaceFirst(patt, "<itemreplacement>" + word + "</itemreplacement>");
+        return message.replaceFirst(patt, "<itemreplacement/>");
     }
 }

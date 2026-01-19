@@ -33,6 +33,7 @@ public final class MeyRPChat extends JavaPlugin {
     public static Range defaultRange;
     public static final HashMap<String, ChannelDescriptorBuilder> channelConfigMap = new HashMap<>();
     public static final TagProviderRegistry tagProviderRegistry = new TagProviderRegistry();
+    public static final TagProviderRegistry messageTagProviderRegistry = new TagProviderRegistry();
     public static final MiniMessage mm = MiniMessage.miniMessage();
     public static String sendDeniedMessage;
     public static String itemReplacementRawString;
@@ -47,6 +48,7 @@ public final class MeyRPChat extends JavaPlugin {
 
         reloadConfigurations();
         loadTagProviders();
+        loadMessageTagProviders();
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
     }
 
@@ -128,7 +130,10 @@ public final class MeyRPChat extends JavaPlugin {
         tagProviderRegistry.register("rangecolor", new RangeColorTagProvider("rangecolor"));
         tagProviderRegistry.register("rangeprefix", new RangePrefixTagProvider("rangeprefix"));
         tagProviderRegistry.register("target", new TargetTagProvider("target"));
-        tagProviderRegistry.register("itemreplacement", new ItemReplacementTagProdiver("itemreplacement"));
+    }
+
+    private void loadMessageTagProviders() {
+        messageTagProviderRegistry.register("itemreplacement", new MessageItemReplacementTagProvider("itemreplacement"));
     }
 
     @Override
