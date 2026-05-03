@@ -43,13 +43,13 @@ channel:
         receivePermission: "meyrpchat.channel.receive.basic"
   - prefix: "*"
     type: "ranged"
-    format: "►<displayname> <italic><rangecolor><message></rangecolor></italic>"
+    format: "►<displayname/> <italic><rangecolor><message></rangecolor></italic>"
   - prefix: "("
     type: "ranged"
-    format: "►<displayname> [<rangeprefix>] <color:#9e9e9e>(<message></color:#9e9e9e>"
+    format: "►<displayname/> [<rangeprefix/>] <color:#9e9e9e>(<message/></color:#9e9e9e>"
   - prefix: ">"
     type: "targeted"
-    format: "<displayname> > <target> : <message>"
+    format: "<displayname/> > <target/> : <message/>"
     options:
         castOnReceive: true
         castOnReceiveRange: 3
