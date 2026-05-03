@@ -5,7 +5,6 @@
 **A Roleplay Chat Plugin for Minecraft 1.21**
 
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.21-62b347?style=flat-square&logo=minecraft)](https://minecraft.net)
-[![License](https://img.shields.io/github/license/Meyllane/MeyRPChat?style=flat-square)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/Meyllane/MeyRPChat?style=flat-square)](https://github.com/Meyllane/meyrpchat/releases)
 
 </div>
